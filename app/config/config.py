@@ -14,6 +14,10 @@ class RunConfig(BaseModel):
     port: int
 
 
+class ApiPrefix(BaseModel):
+    generate: str = "/generate"
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env.template",
@@ -23,6 +27,7 @@ class Settings(BaseSettings):
     )
 
     run: RunConfig
+    api_prefix: ApiPrefix = ApiPrefix()
 
 
 settings = Settings()
