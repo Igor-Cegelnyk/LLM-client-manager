@@ -18,7 +18,19 @@ class ApiPrefix(BaseModel):
     generate: str = "/generate"
 
 
+class MockClientConfig(BaseSettings):
+    registration_name: str
+
+
 class OllamaClientConfig(BaseSettings):
+    registration_name: str
+    url: str
+    model: str
+
+
+class OpenaiClientConfig(BaseSettings):
+    registration_name: str
+    key: str
     url: str
     model: str
 
@@ -33,7 +45,9 @@ class Settings(BaseSettings):
 
     run: RunConfig
     api_prefix: ApiPrefix = ApiPrefix()
+    mock_client_config: MockClientConfig
     ollama_client_config: OllamaClientConfig
+    openai_client_config: OpenaiClientConfig
 
 
 settings = Settings()
