@@ -18,6 +18,11 @@ class ApiPrefix(BaseModel):
     generate: str = "/generate"
 
 
+class OllamaClientConfig(BaseSettings):
+    url: str
+    model: str
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env.template",
@@ -28,6 +33,7 @@ class Settings(BaseSettings):
 
     run: RunConfig
     api_prefix: ApiPrefix = ApiPrefix()
+    ollama_client_config: OllamaClientConfig
 
 
 settings = Settings()
