@@ -1,11 +1,17 @@
 from pathlib import Path
 
+from pydantic import BaseModel
 from pydantic_settings import (
     BaseSettings,
     SettingsConfigDict,
 )
 
 BASE_DIR = Path(__file__).parent.parent.parent
+
+
+class RunConfig(BaseModel):
+    host: str
+    port: int
 
 
 class Settings(BaseSettings):
@@ -16,6 +22,7 @@ class Settings(BaseSettings):
         env_prefix="APP_CONFIG__",
     )
 
+    run: RunConfig
 
 
 settings = Settings()
