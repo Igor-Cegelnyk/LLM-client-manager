@@ -1,0 +1,14 @@
+networks:
+  llm-network:
+    driver: bridge
+
+services:
+  app:
+    build: .
+    container_name: app_llm
+    ports:
+    - "8000:8000"
+    env_file:
+    - .env.template
+    networks:
+      - llm-network
