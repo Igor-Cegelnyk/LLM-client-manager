@@ -12,11 +12,13 @@ uvicorn = "^0.35.0"
 pydantic = "^2.11.9"
 pydantic-settings = "^2.10.1"
 orjson = "^3.11.3"
-httpx = "^0.28.1"
+httpx = { version = "^0.28.1", extras = ["http2"] }
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.1.0"
+pytest = "^8.4.2"
+pytest-asyncio = "^1.2.0"
 
 [build-system]
 requires = ["poetry-core"]
