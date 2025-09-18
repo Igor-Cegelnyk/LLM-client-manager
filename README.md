@@ -1,5 +1,3 @@
-# LLM-client-manager
-
 # FastAPI LLM Client Manager
 
 ![Python](https://img.shields.io/badge/python-3.11+-blue)
