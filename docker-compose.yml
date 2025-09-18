@@ -13,22 +13,23 @@ services:
     networks:
       - llm-network
 
-  ollama:
-    image: ollama/ollama:latest
-    container_name: ollama
-    restart: unless-stopped
-    volumes:
-      - ollama_data:/root/.ollama
-    ports:
-      - "11434:11434"
-    tty: true
-    networks:
-      - llm-network
-    entrypoint: [ "/bin/bash", "-c", "\
-          ollama serve & \
-          sleep 5 && \
-          ollama pull llama3.2 && \
-          wait" ]
-
-volumes:
-  ollama_data:
+##uncomment for use ollama client
+#  ollama:
+#    image: ollama/ollama:latest
+#    container_name: ollama
+#    restart: unless-stopped
+#    volumes:
+#      - ollama_data:/root/.ollama
+#    ports:
+#      - "11434:11434"
+#    tty: true
+#    networks:
+#      - llm-network
+#    entrypoint: [ "/bin/bash", "-c", "\
+#          ollama serve & \
+#          sleep 5 && \
+#          ollama pull llama3.2 && \
+#          wait" ]
+#
+#volumes:
+#  ollama_data:
